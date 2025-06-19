@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Rentals</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Updated font for modern look */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg,black, #8e24aa); /* Background color gradient */
+            color: #333;
+            animation: backgroundAnimation 5s ease infinite;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #333; /* Dark header for contrast */
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        header:hover {
+            background-color: #444;
+        }
+
+        .welcome-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+            background: url('model_engineering_college.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeInBackground 3s ease-out;
+        }
+
+        .welcome-container h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            animation: textFadeIn 2s ease-out;
+        }
+
+        .description {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            animation: textSlideIn 2s ease-out;
+            opacity: 0.85;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: #f39c12; /* Bright accent color */
+            border: none;
+            color: white;
+            font-size: 1.3em;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e74c3c;
+            transform: scale(1.1);
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .option-button {
+            padding: 20px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: #111213; /* Blue button */
+            color: white;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .option-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInTab 1s ease-out forwards;
+        }
+
+        .item-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            text-align: left;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .item-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .item-card h3 {
+            margin-top: 0;
+            font-size: 1.6em;
+            color: #f39c12; /* Accent color for headings */
+        }
+
+        .item-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Additional Animations */
+        @keyframes textFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes textSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeInTab {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInBackground {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Adding smooth scrolling to the page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        select, input, button {
+            font-family: 'Poppins', sans-serif;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        select, input {
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #2ecc71; /* Green button */
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>Smart Rentals</header>
+
+<div class="welcome-container">
+    <h2>Welcome to Smart Rentals</h2>
+    <p class="description">Rent or Sell items in your college with ease. Get started now!</p>
+    <a href="#app" class="btn">Get Started</a>
+</div>
+
+<div class="container" id="app">
+    <div class="options">
+        <button class="option-button" onclick="showSection('rent')">Rent</button>
+        <button class="option-button" onclick="showSection('sale')">Sale</button>
+        <button class="option-button" onclick="showSection('add')">Add</button>
+    </div>
+
+    <!-- Semester Selector -->
+    <div class="semester-selector">
+        <label for="semester-selector">Select Semester: </label>
+        <select id="semester-selector" onchange="updateItems()">
+            <option value="S1">S1</option>
+            <option value="S2">S2</option>
+            <option value="S3">S3</option>
+            <option value="S4">S4</option>
+            <option value="S5">S5</option>
+            <option value="S6">S6</option>
+            <option value="S7">S7</option>
+            <option value="S8">S8</option>
+        </select>
+    </div>
+
+    <div id="rent-section" class="tab-content">
+        <h2>Select Category</h2>
+        <button class="option-button" onclick="showItems('rent', 'geometry')">Geometry</button>
+        <button class="option-button" onclick="showItems('rent', 'books')">Books</button>
+        <button class="option-button" onclick="showItems('rent', 'workshop materials')">Workshop Materials</button>
+        <button class="option-button" onclick="showItems('rent', 'labcoat')">Labcoat</button>
+        <button class="option-button" onclick="showItems('rent', 'calculator')">Calculator</button>
+        <div id="rent-list"></div>
+    </div>
+
+    <div id="sale-section" class="tab-content">
+        <h2>Select Category</h2>
+        <button class="option-button" onclick="showItems('sale', 'geometry')">Geometry</button>
+        <button class="option-button" onclick="showItems('sale', 'books')">Books</button>
+        <button class="option-button" onclick="showItems('sale', 'workshop materials')">Workshop Materials</button>
+        <button class="option-button" onclick="showItems('sale', 'labcoat')">Labcoat</button>
+        <button class="option-button" onclick="showItems('sale', 'calculator')">Calculator</button>
+        <div id="sale-list"></div>
+    </div>
+
+    <div id="add-section" class="tab-content">
+        <h2>Add Item</h2>
+        <form id="add-item-form">
+            <input type="text" id="item-name" placeholder="Item Name" required>
+            <input type="number" id="item-price" placeholder="Price" required>
+            <select id="item-type">
+                <option value="sale">For Sale</option>
+                <option value="rent">For Rent</option>
+            </select>
+            <select id="item-category">
+                <option value="geometry">Geometry</option>
+                <option value="books">Books</option>
+                <option value="workshop materials">Workshop Materials</option>
+                <option value="labcoat">Labcoat</option>
+                <option value="calculator">Calculator</option>
+            </select>
+            <input type="text" id="contact-name" placeholder="Your Name" required>
+            <input type="number" id="contact-semester" placeholder="Semester" required>
+            <input type="text" id="contact-division" placeholder="Division" required>
+            <input type="tel" id="contact-number" placeholder="Contact Number" required>
+            <select id="item-semester">
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+                <option value="S4">S4</option>
+                <option value="S5">S5</option>
+                <option value="S6">S6</option>
+                <option value="S7">S7</option>
+                <option value="S8">S8</option>
+            </select>
+            <button type="submit">Add Item</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let items = {};
+
+    function showSection(section) {
+        const sections = ['rent', 'sale', 'add'];
+        sections.forEach(s => document.getElementById(`${s}-section`).style.display = 'none');
+        document.getElementById(`${section}-section`).style.display = 'block';
+    }
+
+    document.getElementById("add-item-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let itemName = document.getElementById("item-name").value.toLowerCase();
+        let price = document.getElementById("item-price").value;
+        let type = document.getElementById("item-type").value;
+        let category = document.getElementById("item-category").value;
+        let contactName = document.getElementById("contact-name").value;
+        let contactSemester = document.getElementById("contact-semester").value;
+        let contactDivision = document.getElementById("contact-division").value;
+        let contactNumber = document.getElementById("contact-number").value;
+        let semester = document.getElementById("item-semester").value;
+
+        if (!items[semester]) {
+            items[semester] = {};
+        }
+        if (!items[semester][category]) {
+            items[semester][category] = [];
+        }
+
+        items[semester][category].push({
+            name: itemName,
+            price: price,
+            type,
+            contactName,
+            contactSemester,
+            contactDivision,
+            contactNumber
+        });
+
+        alert("Item added successfully!");
+        this.reset();
+    });
+
+    function showItems(type, category) {
+        let semester = document.getElementById("semester-selector").value;
+        let listElement = document.getElementById(`${type}-list`);
+        listElement.innerHTML = "";
+
+        let categoryItems = (items[semester] && items[semester][category]) || [];
+        categoryItems.forEach(item => {
+            if (item.type === type) {
+                let itemCard = document.createElement("div");
+                itemCard.classList.add("item-card");
+                itemCard.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p>Price: ${item.price}</p>
+                    <p>Contact: ${item.contactName}, ${item.contactSemester} ${item.contactDivision}</p>
+                    <p>Phone: ${item.contactNumber}</p>
+                `;
+                listElement.appendChild(itemCard);
+            }
+        });
+    }
+
+    function updateItems() {
+        let semester = document.getElementById("semester-selector").value;
+        let rentCategories = ['geometry', 'books', 'workshop materials', 'labcoat', 'calculator'];
+        let saleCategories = ['geometry', 'books', 'workshop materials', 'labcoat', 'calculator'];
+
+        rentCategories.forEach(category => showItems('rent', category));
+        saleCategories.forEach(category => showItems('sale', category));
+    }
+
+    showSection('rent');
+</script>
+
+</body>
+</html>
